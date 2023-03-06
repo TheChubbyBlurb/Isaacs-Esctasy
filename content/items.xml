@@ -1,0 +1,4 @@
+<items gfxroot="gfx/items/" version='1'>
+    <passive id="1" name="Viagra" gfx="Viagra.png" description="I feel funny.." quality="2" cache="damage"> </passive>
+    <active id="2" name="Forbiddon Fleshlight" gfx="ForbiddonFleshlight.png" description="Prickly" quality="3" cache="damage" maxcharges="4" chargetype="normal"> </active>
+</items>
