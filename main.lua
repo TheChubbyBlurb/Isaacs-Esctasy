@@ -270,6 +270,10 @@ function Isaacs_EsctasyMod:OnPlayerCollision(player, collider)
     --If the player is already playing an animation or it has iFrames, skip
     if player:GetData().IsPlayingExtraAnimation or player:GetData().ExtraAnimIFrames then return end
 
+    if not collider:HasEntityFlags(EntityFlag.FLAG_CHARM) then
+        return
+    end
+
     --If the collider is already playing an animation, skip
     if collider:GetData().IsPlayingExtraAnimation then return end
 
