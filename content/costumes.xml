@@ -1,0 +1,5 @@
+<costumes anm2root="gfx/characters/">
+    
+<costume priority="99" type="none" anm2path="jezebel_hair.anm2"/>
+    
+</costumes>

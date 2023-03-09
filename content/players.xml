@@ -1,0 +1,12 @@
+<players root="gfx/characters/costumes/" portraitroot="gfx/ui/stage/" nameimageroot="gfx/ui/boss/" >
+    <player
+		name="Jezebel"
+		hp="4" black="2"
+		skin="character_Jezebel.png" skinColor="1"
+		nameimage="playername_jezebel.png"
+		portrait="playerportrait_jezebel.png"
+		extraportrait="extra_jezebel.anm2"
+		costumeSuffix="jezebel"
+		
+	/>
+</players>
