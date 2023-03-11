@@ -42,12 +42,56 @@ end
 Isaacs_EsctasyMod:AddCallback(ModCallbacks.MC_USE_ITEM, Isaacs_EsctasyMod.FFuse, ForFib)
 
 
+local game = Game()
+local sound = SFXManager()
+
+if debug then -- reload mod if luadebug is enabled, fixes luamod
+    package.loaded["scripts.stageapi.mod"] = false
+end
+
+require("scripts.stageapi.mod")
+
+-- Documentation moved to doc.md
+
+if not StageAPI then
+    StageAPI = {}
+end
+
+local loadOrder = include("scripts.stageapi.loadOrder")
+
+StageAPI.Enum = {}
+
+for _, module in ipairs(loadOrder) do
+    include(module)
+end
+
+StageAPI.LogMinor("Fully Loaded, loading dependent mods.")
+StageAPI.MarkLoaded("StageAPI", "2.23", true, true)
+
+StageAPI.Loaded = true
+if StageAPI.ToCall then
+    for _, fn in ipairs(StageAPI.ToCall) do
+        fn()
+    end
+end
 
 
+local function GardenOfEden()               -- This function will be called when the StageAPI loads
+    local rooms = require("rooms.lua")
+    local bossrooms = require("bossrooms.lua") -- This will be the file obtained from using STBProcessor
 
+    local isMultiStage = false -- Can also pass false / true directly into GetStageConfig, this is just for show
 
+    local stage = StageAPI.GetStageConfig("GardenOfEden", rooms, bossrooms, isMultiStage)
+end
 
+local START_FUNC = GardenOfEden             -- Defines the function that will be called when StageAPI loads
 
+if StageAPI then START_FUNC()         -- Blob that, assuming the above code was implemented correctly, will ensure that your function is called when StageAPI loads.
+else if not __stageAPIInit then
+    __stageAPIInit = {}
+end __stageAPIInit[#__stageAPIInit + 1] = START_FUNC
+end
 
 
 

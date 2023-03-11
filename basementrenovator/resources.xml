@@ -1,0 +1,5 @@
+<stages root="rooms/" greedroot="rooms/greed/" bossgfxroot="gfx/ui/boss/">
+
+    <stage id="27" name="Basement" path="01.Garden.xml" playerspot="playerspot_01_basement.png" bossspot="bossspot_01_basement.png" music="3" backdrop="1" fx="6" />
+
+</stages>
